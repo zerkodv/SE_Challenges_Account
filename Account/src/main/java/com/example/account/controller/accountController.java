@@ -51,6 +51,29 @@ public class accountController {
         return new ResponseEntity<>(accountDatabase.save(account), HttpStatus.OK);
     }
 
+
+    @PutMapping("/account/{id}")
+    public ResponseEntity<Account> updateTeacher(@PathVariable("id") long id, @RequestBody Account account) {
+
+        Account accountObj = getAccountRec(id);
+
+        if (accountObj != null) {
+            accountObj.setAccountType(account.getAccountType());
+            accountObj.setAccountNumber(account.getAccountNumber());
+            accountObj.setAccountName(account.getAccountName());
+            accountObj.setBalance(account.getBalance());
+            accountObj.setDate(account.getDate());
+
+            return new ResponseEntity<>(accountDatabase.save(accountObj), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+
+
+
+
     private Account getAccountRec(long id) {
         Optional<Account> accountObj = accountDatabase.findById(id);
 
