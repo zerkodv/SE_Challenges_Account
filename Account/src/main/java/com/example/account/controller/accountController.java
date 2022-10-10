@@ -58,11 +58,11 @@ public class accountController {
         Account accountObj = getAccountRec(id);
 
         if (accountObj != null) {
-            accountObj.setAccountType(account.getAccountType());
-            accountObj.setAccountNumber(account.getAccountNumber());
-            accountObj.setAccountName(account.getAccountName());
+            accountObj.setAccounttype(account.getAccounttype());
+            accountObj.setAccountnumber(account.getAccountnumber());
+            accountObj.setAccountname(account.getAccountname());
             accountObj.setBalance(account.getBalance());
-            accountObj.setDate(account.getDate());
+            accountObj.setCurrentdate(account.getCurrentdate());
 
             return new ResponseEntity<>(accountDatabase.save(accountObj), HttpStatus.OK);
         }

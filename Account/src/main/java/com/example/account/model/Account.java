@@ -1,22 +1,34 @@
 package com.example.account.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public class Account {
-    private Long id;
-    private String accountType;
-    private String accountNumber;
-    private String accountName;
-    private Integer balance;
-    private Date date;
 
-    public Account(Long id, String accountType, String accountNumber, String accountName, Integer balance, Date date) {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String accounttype;
+    private String accountnumber;
+    private String accountname;
+    private String balance;
+    private String currentdate;
+
+    public Account(Long id, String accounttype, String accountnumber, String accountname, String balance, String currentdate) {
         this.id = id;
-        this.accountType = accountType;
-        this.accountNumber = accountNumber;
-        this.accountName = accountName;
+        this.accounttype = accounttype;
+        this.accountnumber = accountnumber;
+        this.accountname = accountname;
         this.balance = balance;
-        this.date = date;
+        this.currentdate = currentdate;
+    }
+
+    public Account() {
+
     }
 
     public Long getId() {
@@ -27,55 +39,55 @@ public class Account {
         this.id = id;
     }
 
-    public String getAccountType() {
-        return accountType;
+    public String getAccounttype() {
+        return accounttype;
     }
 
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
+    public void setAccounttype(String accounttype) {
+        this.accounttype = accounttype;
     }
 
-    public String getAccountNumber() {
-        return accountNumber;
+    public String getAccountnumber() {
+        return accountnumber;
     }
 
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
+    public void setAccountnumber(String accountnumber) {
+        this.accountnumber = accountnumber;
     }
 
-    public String getAccountName() {
-        return accountName;
+    public String getAccountname() {
+        return accountname;
     }
 
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
+    public void setAccountname(String accountname) {
+        this.accountname = accountname;
     }
 
-    public Integer getBalance() {
+    public String getBalance() {
         return balance;
     }
 
-    public void setBalance(Integer balance) {
+    public void setBalance(String balance) {
         this.balance = balance;
     }
 
-    public Date getDate() {
-        return date;
+    public String getCurrentdate() {
+        return currentdate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setCurrentdate(String currentdate) {
+        this.currentdate = currentdate;
     }
 
     @Override
     public String toString() {
         return "Account{" +
                 "id=" + id +
-                ", accountType='" + accountType + '\'' +
-                ", accountNumber='" + accountNumber + '\'' +
-                ", accountName='" + accountName + '\'' +
-                ", balance=" + balance +
-                ", date=" + date +
+                ", accounttype='" + accounttype + '\'' +
+                ", accountnumber='" + accountnumber + '\'' +
+                ", accountname='" + accountname + '\'' +
+                ", balance='" + balance + '\'' +
+                ", currentdate='" + currentdate + '\'' +
                 '}';
     }
 }
