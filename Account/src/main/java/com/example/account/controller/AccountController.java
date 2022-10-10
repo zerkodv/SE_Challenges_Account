@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class accountController {
+public class AccountController {
     @Autowired
     AccountDatabase accountDatabase;
 
