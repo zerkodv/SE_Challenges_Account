@@ -53,7 +53,7 @@ public class accountController {
 
 
     @PutMapping("/account/{id}")
-    public ResponseEntity<Account> updateTeacher(@PathVariable("id") long id, @RequestBody Account account) {
+    public ResponseEntity<Account> updateAccount(@PathVariable("id") long id, @RequestBody Account account) {
 
         Account accountObj = getAccountRec(id);
 
