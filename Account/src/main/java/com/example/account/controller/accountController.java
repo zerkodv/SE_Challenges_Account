@@ -29,7 +29,7 @@ public class accountController {
     }
 
     @GetMapping("/account/{id}")
-    public ResponseEntity<Account> getPersonById(@PathVariable("id") long id) {
+    public ResponseEntity<Account> getAccountById(@PathVariable("id") long id) {
         try {
             Account accountObj = getAccountRec(id);
 
