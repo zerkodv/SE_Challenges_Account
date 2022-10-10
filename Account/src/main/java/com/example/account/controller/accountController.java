@@ -70,6 +70,32 @@ public class accountController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @DeleteMapping("/account/{id}")
+    public ResponseEntity<HttpStatus> deleteAccountById(@PathVariable("id") long id) {
+        try {
+            Account account = getAccountRec(id);
+
+            if (account != null) {
+                accountDatabase.deleteById(id);
+                return new ResponseEntity<>(HttpStatus.OK);
+            }
+
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @DeleteMapping("/account")
+    public ResponseEntity<HttpStatus> deleteAllAccount() {
+        try {
+            accountDatabase.deleteAll();
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
 
 
 
