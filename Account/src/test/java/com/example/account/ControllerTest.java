@@ -41,11 +41,22 @@ public class ControllerTest {
 
         Mockito.when(accountDatabase.findAll()).thenReturn(accounts);
 
-        mockMvc.perform((RequestBuilder) get("/persons",1))
+        mockMvc.perform(get("/persons"))
                 .andExpect(status().isOk())
                 .andExpect((ResultMatcher) jsonPath("$", Matchers.hasSize(1)))
                 .andExpect((ResultMatcher) jsonPath("$[0].name", Matchers.is("John Book")));
     }
+
+    private RequestBuilder get(String s) {
+        return null;
+    }
+
+
+    @Test
+    public void testDeleteAll() throws Exception{
+
+    }
+
 
 
 }
